@@ -5,7 +5,7 @@ This project implements and evaluates deep learning models for potato plant dise
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-- [Features](#features)
+- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Dataset](#dataset)
 - [Configuration](#configuration)
@@ -17,16 +17,28 @@ This project implements and evaluates deep learning models for potato plant dise
 
 ## Project Overview
 
-**`EffNetGNN`** is a novel hybrid deep learning architecture that combines EfficientNet's powerful feature extraction capabilities with Graph Neural Networks (GNNs) for robust potato plant disease classification. By modeling spatial relationships and contextual dependencies between image regions through learnable graph structures, EffNetGNN achieves state-of-the-art performance in agricultural disease detection.
+This project builds upon the methodology described in [Sinamenye, J.H. et al, 2025], which implemented potato plant disease detection using EfficientNetV2B3. In this repository, we extend the original work by experimenting with **`hybrid models`**, including **`EffNetGNN`**, which were implemented from scratch. These modifications explore hybrid architectures for improved disease detection performance while keeping the original dataset and task consistent.
 
-## Features
+EffNetGNN is a hybrid deep learning architecture that combines EfficientNet’s powerful feature extraction capabilities with Graph Neural Networks (GNNs) to model spatial relationships and contextual dependencies between image regions through learnable graph structures. By leveraging these hybrid features, EffNetGNN achieves state-of-the-art performance in potato leaf disease classification.
 
-- Used dataset (`potatodata`).
-- Implementation of various CNN, GNN and ViT models, including hybrid architectures like `EffNetGNN`.
-- Configurable training parameters (epochs, learning rate, batch size, etc.).
-- Data augmentation options to improve model generalization.
-- Training and testing scripts.
-- Logging of experiments using Weights & Biases (wandb).
+The repository also provides a framework for training and testing various CNN, GNN, and Vision Transformer (ViT) based architectures, including other hybrid models, for comparative analysis.
+
+## Project Structure
+
+Plant-Disease-Detection/
+│
+├── src/
+│ ├── train.py # Training script
+│ ├── test.py # Evaluation/testing script
+│ ├── models.py # Model architectures (EffNetGNN, EffNetViT, etc.)
+│ └── configurations.py # Training/testing and dataset configuration
+│
+├── README.md # Project documentation
+├── pyproject.toml  
+├── poetry.lock  
+├── requirements.txt # Optional dependencies
+├── .gitignore # Git ignore file
+└── .pre-commit-config.yaml # Pre-commit hooks configuration
 
 ## Installation
 
@@ -109,7 +121,7 @@ To train a model:
 To test a trained model:
 
 1.  Set `TRAINING = False` in `src/configurations.py`.
-2.  Ensure the `SAVED_MODELS` dictionary in `src/configurations.py` points to the correct trained model checkpoint for the `EfficientNetV2B3ViT` (often keyed as `EffNetViT`) or other model you wish to test.
+2.  Ensure the `SAVED_MODELS` dictionary in `src/configurations.py` points to the correct trained model checkpoint for the `EfficientNetGNN` (often keyed as `EffNetGNN`) or other model you wish to test.
 3.  Specify the model to test in the `MODELS` dictionary (it should reference the class, not an instance).
 4.  Run the testing script:
     ```bash
@@ -119,7 +131,7 @@ To test a trained model:
 
 ## Models
 
-The foundation of this project is the **`EffNetGNN`** hybrid model which combines the strengths of EfficientNetV2B3 and a Vision Transformer. This model, defined in `src/models.py` (and typically referenced as `EfficientNetGNN` in `src/configurations.py`), is the primary subject of the research publication due to its promising results in potato plant disease detection and identification.
+The foundation of this project is the **`EffNetGNN`** hybrid model which combines the strengths of EfficientNet (a Convolutional Neural Network (CNN)) and Graph Neural Networks (GNN). This model, defined in `src/models.py` (and typically referenced as `EfficientNetGNN` in `src/configurations.py`), is the primary subject of the research publication due to its promising results in potato plant disease detection and identification.
 
 While `EffNetGNN` is the main focus, the framework also includes implementations of other models for comparative analysis, such as:
 
