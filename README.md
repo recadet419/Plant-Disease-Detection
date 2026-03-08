@@ -5,7 +5,6 @@ This project implements and evaluates deep learning models for potato plant dise
 ## Table of Contents
 
 - [Project Overview](#project-overview)
-- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Dataset](#dataset)
 - [Configuration](#configuration)
@@ -22,23 +21,6 @@ This project builds upon the methodology described in [Sinamenye, J.H. et al, 20
 EffNetGNN is a hybrid deep learning architecture that combines EfficientNet’s powerful feature extraction capabilities with Graph Neural Networks (GNNs) to model spatial relationships and contextual dependencies between image regions through learnable graph structures. By leveraging these hybrid features, EffNetGNN achieves state-of-the-art performance in potato leaf disease classification.
 
 The repository also provides a framework for training and testing various CNN, GNN, and Vision Transformer (ViT) based architectures, including other hybrid models, for comparative analysis.
-
-## Project Structure
-
-Plant-Disease-Detection/
-│
-├── src/
-│ ├── train.py # Training script
-│ ├── test.py # Evaluation/testing script
-│ ├── models.py # Model architectures (EffNetGNN, EffNetViT, etc.)
-│ └── configurations.py # Training/testing and dataset configuration
-│
-├── README.md # Project documentation
-├── pyproject.toml  
-├── poetry.lock  
-├── requirements.txt # Optional dependencies
-├── .gitignore # Git ignore file
-└── .pre-commit-config.yaml # Pre-commit hooks configuration
 
 ## Installation
 
